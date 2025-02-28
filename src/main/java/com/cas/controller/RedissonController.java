@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.time.Duration;
 import java.util.Collections;
 
 /**
@@ -37,7 +38,7 @@ public class RedissonController {
     public void limit() throws Exception {
         Thread.sleep(300L);
         RRateLimiter newRateLimiter = redissonClient.getRateLimiter("20221108100128292024");
-        newRateLimiter.trySetRate(RateType.OVERALL, Integer.parseInt("150"), 1, RateIntervalUnit.SECONDS);
+        newRateLimiter.trySetRate(RateType.OVERALL, Integer.parseInt("150"), Duration.ofDays(1));
         System.out.println(index++);
         if (!newRateLimiter.tryAcquire(1)) {
             index = 0;

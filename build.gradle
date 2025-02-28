@@ -24,7 +24,7 @@ dependencies {
     //hutool
     implementation("cn.hutool:hutool-all:5.7.7")
 
-    implementation 'org.redisson:redisson:3.16.2'
+    implementation 'org.redisson:redisson:3.40.2'
     implementation 'de.ruedigermoeller:fst:2.57'
 
     implementation 'commons-beanutils:commons-beanutils:1.9.4'
